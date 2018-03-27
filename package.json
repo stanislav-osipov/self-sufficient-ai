@@ -1,0 +1,27 @@
+{
+  "name": "SelfSufficientAI",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "test_win": "env.bat && nodemon --watch src/**/*.ts --exec ts-node src/server.ts"
+  },
+  "author": "StanOs",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "8.0.33",
+    "@types/request": "2.0.4",
+    "@types/request-promise-native": "1.0.7",
+    "@types/restify": "5.0.5",
+    "botbuilder": "3.10.2",
+    "lodash": "4.17.4",
+    "nodemon": "1.12.1",
+    "petrovich": "0.2.1",
+    "request": "2.83.0",
+    "request-promise-native": "1.0.5",
+    "restify": "6.0.1",
+    "ts-node": "3.3.0",
+    "typescript": "2.5.3",
+    "uuid": "3.1.0"
+  }
+}
