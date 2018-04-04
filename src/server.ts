@@ -19,9 +19,6 @@ const announcement: Announcement = new Announcement();
 const vote: Vote = new Vote();
 const votex: Votex = new Votex();
 
-//Start simple ws chat server
-const forked = fork('./src/chat-server.js');
-
 // Setup Restify Server
 const server: Server = createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
