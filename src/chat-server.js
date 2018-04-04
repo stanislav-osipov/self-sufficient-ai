@@ -1,9 +1,16 @@
 const wss = new require('ws');
+const express = require('express');
+
+const PORT = 30130;
+const server = express()
+  .use((req, res) => res.sendFile('index.html') )
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
 
 let clients = {};
 
 const webSocketServer = new wss.Server({
-  port: 30130
+ server
 });
 
 webSocketServer.on('connection', webSocket => {

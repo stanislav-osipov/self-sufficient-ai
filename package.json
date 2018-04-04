@@ -15,6 +15,7 @@
     "@types/request-promise-native": "1.0.7",
     "@types/restify": "5.0.5",
     "botbuilder": "3.10.2",
+    "express": "^4.16.3",
     "lodash": "4.17.4",
     "nodemon": "1.12.1",
     "petrovich": "0.2.1",
