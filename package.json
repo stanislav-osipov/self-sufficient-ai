@@ -9,6 +9,7 @@
   "author": "StanOs",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash": "^4.14.106",
     "@types/node": "8.0.33",
     "@types/request": "2.0.4",
     "@types/request-promise-native": "1.0.7",
@@ -22,6 +23,7 @@
     "restify": "6.0.1",
     "ts-node": "3.3.0",
     "typescript": "2.5.3",
-    "uuid": "3.1.0"
+    "uuid": "3.1.0",
+    "ws": "^5.1.1"
   }
 }

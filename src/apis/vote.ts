@@ -103,7 +103,7 @@ export default class Vote extends MessageHandler {
       if (user in this.results) {
         return;
       }
-
+      
       this.results[user] = option;
     }
   }
@@ -113,6 +113,7 @@ export default class Vote extends MessageHandler {
       matches: new RegExp(`^(?:${Vote.prefix})(\\d)$`),
       onSelectAction: (session: Session, args: IActionRouteData) => {
         this.processChoise(session.message.user.name, args.intent.matched[1]);
+        session.endConversation();
         session.endDialog();
       }
     })

@@ -1,3 +1,4 @@
+import { fork }from 'child_process';
 import {
   createServer,
   plugins as restifyPlugins,
@@ -17,6 +18,9 @@ import Votex from './apis/votex';
 const announcement: Announcement = new Announcement();
 const vote: Vote = new Vote();
 const votex: Votex = new Votex();
+
+//Start simple ws chat server
+const forked = fork('./src/chat-server.js');
 
 // Setup Restify Server
 const server: Server = createServer();
