@@ -14,10 +14,12 @@ import {
 import Announcement from './apis/announcement';
 import Vote from './apis/vote';
 import Votex from './apis/votex';
+import Albion from './apis/albion';
 
 const announcement: Announcement = new Announcement();
 const vote: Vote = new Vote();
 const votex: Votex = new Votex();
+const albion: Albion = new Albion();
 
 // Setup Restify Server
 const server: Server = createServer();
@@ -44,6 +46,7 @@ const bot: UniversalBot = new UniversalBot(connector, (session: Session) => {
   announcement.handleMessage(session);
   vote.handleMessage(session);
   votex.handleMessage(session);
+  albion.handleMessage(session);
 });
 
 vote.setCustomActions(bot);
