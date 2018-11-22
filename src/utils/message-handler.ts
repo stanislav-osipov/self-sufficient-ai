@@ -8,7 +8,7 @@ export default abstract class MessageHandler {
   }
 
   public handleMessage(session: Session) {
-    this.stripBotName(session);
+    // this.stripBotName(session);
 
     this.handleBotMessage(session)
       .then(response => {
