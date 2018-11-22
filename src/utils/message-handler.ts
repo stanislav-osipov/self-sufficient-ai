@@ -4,11 +4,11 @@ export default abstract class MessageHandler {
   private botNameRegex: RegExp;
 
   constructor() {
-    this.botNameRegex = new RegExp('^(?:@SelfSufficientAI\\s)?(.*)$');
+    this.botNameRegex = new RegExp('^(?:SelfSufficientAI\\s)?(.*)$');
   }
 
   public handleMessage(session: Session) {
-    // this.stripBotName(session);
+    this.stripBotName(session);
 
     this.handleBotMessage(session)
       .then(response => {
