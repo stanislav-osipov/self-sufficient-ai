@@ -8,18 +8,22 @@ import {
 import {
   UniversalBot,
   ChatConnector,
-  Session
+  Session,
+  IConversationUpdate,
+  Message
 } from 'botbuilder';
 
 import Announcement from './apis/announcement';
 import Vote from './apis/vote';
 import Votex from './apis/votex';
 import Albion from './apis/albion';
+import Leavers from './apis/leavers';
 
 const announcement: Announcement = new Announcement();
 const vote: Vote = new Vote();
 const votex: Votex = new Votex();
 const albion: Albion = new Albion();
+const leavers = new Leavers();
 
 // Setup Restify Server
 const server: Server = createServer();
@@ -47,6 +51,13 @@ const bot: UniversalBot = new UniversalBot(connector, (session: Session) => {
   vote.handleMessage(session);
   votex.handleMessage(session);
   albion.handleMessage(session);
+  leavers.handleMessage(session);
+});
+
+bot.on('conversationUpdate', (event: IConversationUpdate) => {
+  if (leavers.tracking) {
+    leavers.handleEvent(event);
+  }
 });
 
 vote.setCustomActions(bot);
