@@ -19,20 +19,22 @@ class Leavers extends MessageHandler {
 
   private start(): void {
     this.tracking = true;
+    this.send('Start');
   }
 
   public handleEvent(event: IConversationUpdate) {
     const leavers = event.membersRemoved;
     
     if (leavers && leavers.length) {
-      const users = leavers.map(leaver => `${leaver.id} (${leaver.name || 'N/A'})`).join(' и ');
+      // const users = leavers.map(leaver => `${leaver.id} (${leaver.name || 'N/A'})`).join(' и ');
   
-      this.send(`${users} вышел из старого чата. Не будь как ${users}, не выходи из старых чатов!`);
+      this.send(`Кто-то вышел из старого чата. Задумайся, не выходи из старых чатов!`);
     }
   }
 
   private stop(): void {
     this.tracking = false;
+    this.send('End');
   }
 
   private send(message: string): void {

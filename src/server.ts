@@ -57,6 +57,16 @@ const bot: UniversalBot = new UniversalBot(connector, (session: Session) => {
 bot.on('conversationUpdate', (event: IConversationUpdate) => {
   if (leavers.tracking) {
     leavers.handleEvent(event);
+
+    const list = event.membersRemoved;
+    
+    if (list && list.length)  {
+      list.forEach(user => {
+        bot.send(new Message()
+          .address({...event.address, user })
+          .text('Зачем? :('));
+      });
+    }
   }
 });
 
