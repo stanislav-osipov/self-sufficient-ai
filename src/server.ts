@@ -62,8 +62,10 @@ bot.on('conversationUpdate', (event: IConversationUpdate) => {
     
     if (list && list.length)  {
       list.forEach(user => {
+        const message = {...event.address, user };
+        delete message.conversation;
         bot.send(new Message()
-          .address({...event.address, user })
+          .address(message)
           .text('Зачем? :('));
       });
     }
